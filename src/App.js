@@ -19,6 +19,8 @@ import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LoadingSpinner from "./components/LoadingSpinner";
 import SubmitTicket from "./pages/SubmitTicket";
+import AboutPage from "./pages/AboutPage";
+import ModulesPage from "./pages/ModulesPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -45,6 +47,8 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegistrationPage />} />
               <Route path="/ticket" element={<SubmitTicket />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/modules" element={<ModulesPage />} />
 
               {/* Protected Dashboard Routes */}
               <Route
