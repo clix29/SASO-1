@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -58,7 +59,12 @@ function App() {
                     <StudentDashboard />
                   </ProtectedRoute>
                 }
-              />
+              >
+                <Route path="schedule" element={React.createElement(require('./pages/dashboards/student/Schedule').default)} />
+                <Route path="messages" element={React.createElement(require('./pages/dashboards/student/Messages').default)} />
+                <Route path="attendance" element={React.createElement(require('./pages/dashboards/student/Attendance').default)} />
+                <Route path="faq" element={React.createElement(require('./pages/dashboards/student/FAQ').default)} />
+              </Route>
 
               <Route
                 path="/lecturer/*"
@@ -67,7 +73,12 @@ function App() {
                     <LecturerDashboard />
                   </ProtectedRoute>
                 }
-              />
+              >
+                <Route path="materials" element={React.createElement(require('./pages/dashboards/lecturer/Materials').default)} />
+                <Route path="performance" element={React.createElement(require('./pages/dashboards/lecturer/Performance').default)} />
+                <Route path="attendance" element={React.createElement(require('./pages/dashboards/lecturer/Attendance').default)} />
+                <Route path="communication" element={React.createElement(require('./pages/dashboards/lecturer/Communication').default)} />
+              </Route>
 
               <Route
                 path="/tutor/*"
