@@ -21,6 +21,8 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import SubmitTicket from "./pages/SubmitTicket";
 import AboutPage from "./pages/AboutPage";
 import ModulesPage from "./pages/ModulesPage";
+import Schedule from "./pages/Schedule";
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -49,6 +51,7 @@ function App() {
               <Route path="/ticket" element={<SubmitTicket />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/modules" element={<ModulesPage />} />
+              <Route path="/schedule" element={<Schedule />} />
 
               {/* Protected Dashboard Routes */}
               <Route
