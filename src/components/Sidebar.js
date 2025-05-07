@@ -27,7 +27,7 @@ const Sidebar = () => {
 
   const dashboardItems = [
     { text: 'Student Dashboard', icon: <StudentIcon />, path: '/student' },
-    { text: 'Lecture Dashboard', icon: <LectureIcon />, path: '/lecture' },
+    { text: 'Lecture Dashboard', icon: <LectureIcon />, path: '/lecturer' },
     { text: 'Tutor Dashboard', icon: <TutorIcon />, path: '/tutor' },
     { text: 'Admin Dashboard', icon: <AdminIcon />, path: '/admin' }
   ];
