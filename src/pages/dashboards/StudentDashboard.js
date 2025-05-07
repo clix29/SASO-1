@@ -15,6 +15,7 @@ const StudentDashboard = () => {
       </Typography>
 
       <Grid container spacing={3} mt={2}>
+
         {/* Upcoming Schedule */}
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 2 }}>
@@ -62,6 +63,23 @@ const StudentDashboard = () => {
               sx={{ mt: 1 }}
             >
               View Attendance
+            </Button>
+          </Paper>
+        </Grid>
+
+        {/* Accademic */}
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Academic Record</Typography>
+            <Typography variant="body2">
+              Track your academic progress and grades.
+            </Typography>
+            <Button
+              onClick={() => navigate("/academic")}
+              variant="outlined"
+              sx={{ mt: 1 }}
+            >
+              View Academic Record
             </Button>
           </Paper>
         </Grid>

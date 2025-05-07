@@ -22,7 +22,8 @@ import SubmitTicket from "./pages/SubmitTicket";
 import AboutPage from "./pages/AboutPage";
 import ModulesPage from "./pages/ModulesPage";
 import Schedule from "./pages/Schedule";
-
+import StudentAttendance from "./pages/StudentAttendance"; // Fixed the import path
+import AcademicRecord from "./pages/AcademicRecord";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -52,7 +53,8 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/modules" element={<ModulesPage />} />
               <Route path="/schedule" element={<Schedule />} />
-
+              <Route path="/attendance" element={<StudentAttendance />} /> {/* Added route for StudentAttendance */}
+              <Route path="/academic" element={<AcademicRecord />} /> {/* Added route for AcademicRecord */}
               {/* Protected Dashboard Routes */}
               <Route
                 path="/student/*"
