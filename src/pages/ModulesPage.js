@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Grid, Paper, Button } from "@mui/material";
+import { Typography, Container, Grid, Paper, Button } from "@mui/material";
 
 const mockModules = [
   {
