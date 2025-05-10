@@ -24,7 +24,6 @@ import DownloadIcon from '@mui/icons-material/Download';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SchoolIcon from '@mui/icons-material/School';
 
-// Mock schedule data
 const mockScheduleData = [
   { id: 1, day: 'Monday', startTime: '09:00', endTime: '10:30', module: 'Introduction to Programming', moduleCode: 'CS101', type: 'Lecture', location: 'Room A101', lecturer: 'Dr. James Smith' },
   { id: 2, day: 'Monday', startTime: '11:00', endTime: '12:30', module: 'Database Systems', moduleCode: 'CS205', type: 'Lecture', location: 'Room B202', lecturer: 'Dr. Sarah Johnson' },
@@ -34,7 +33,6 @@ const mockScheduleData = [
   { id: 6, day: 'Friday', startTime: '13:00', endTime: '16:00', module: 'Software Engineering', moduleCode: 'CS301', type: 'Practical', location: 'Lab C308', lecturer: 'Dr. Jennifer Davis' },
 ];
 
-// Organize by day
 const scheduleByDay = {
   'Monday': mockScheduleData.filter(item => item.day === 'Monday'),
   'Tuesday': mockScheduleData.filter(item => item.day === 'Tuesday'),
@@ -43,7 +41,6 @@ const scheduleByDay = {
   'Friday': mockScheduleData.filter(item => item.day === 'Friday'),
 };
 
-// Color mapping
 const getTypeColor = (type) => {
   switch (type.toLowerCase()) {
     case 'lecture': return 'primary';
@@ -53,7 +50,6 @@ const getTypeColor = (type) => {
   }
 };
 
-// Helper: Convert to 24hr Date object
 const getDateTimeFromSchedule = (day, time) => {
   const dayMap = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const now = new Date();
@@ -67,18 +63,15 @@ const getDateTimeFromSchedule = (day, time) => {
   return date;
 };
 
-// Sort and get upcoming sessions
 const getUpcomingSessions = () => {
   const now = new Date();
-  const upcoming = mockScheduleData
+  return mockScheduleData
     .map(session => ({ ...session, dateTime: getDateTimeFromSchedule(session.day, session.startTime) }))
     .filter(session => session.dateTime > now)
     .sort((a, b) => a.dateTime - b.dateTime)
     .slice(0, 3);
-  return upcoming;
 };
 
-// Mock attendance data
 const mockAttendanceData = [
   { module: 'Introduction to Programming', code: 'CS101', attended: 8, total: 10 },
   { module: 'Database Systems', code: 'CS205', attended: 7, total: 9 },
@@ -96,15 +89,14 @@ const Schedule = () => {
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   return (
-    <Box>
-      <Typography variant="h4" gutterBottom>
+    <Box sx={{ background: "linear-gradient(135deg,rgb(1, 20, 37),rgb(73, 73, 202))", p: 3 }}>
+      <Typography variant="h4" gutterBottom sx={{ color: '#ffffff' }}>
         Class Schedule
       </Typography>
 
-      {/* Weekly Timetable */}
-      <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
+      <Paper elevation={3} sx={{ p: 3, mb: 3, background: 'linear-gradient(145deg,rgb(194, 195, 198),rgb(207, 213, 248))' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <Typography variant="h6">
+          <Typography variant="h6" sx={{ color: '#0A2136' }}>
             <CalendarMonthIcon sx={{ mr: 1 }} />
             Weekly Timetable
           </Typography>
@@ -122,13 +114,13 @@ const Schedule = () => {
             {scheduleByDay[day].length > 0 ? (
               <TableContainer>
                 <Table>
-                  <TableHead>
+                  <TableHead sx={{ backgroundColor: '#E1F0FF' }}>
                     <TableRow>
-                      <TableCell>Time</TableCell>
-                      <TableCell>Module</TableCell>
-                      <TableCell>Type</TableCell>
-                      <TableCell>Location</TableCell>
-                      <TableCell>Lecturer</TableCell>
+                      <TableCell sx={{ color: '#0A2136' }}>Time</TableCell>
+                      <TableCell sx={{ color: '#0A2136' }}>Module</TableCell>
+                      <TableCell sx={{ color: '#0A2136' }}>Type</TableCell>
+                      <TableCell sx={{ color: '#0A2136' }}>Location</TableCell>
+                      <TableCell sx={{ color: '#0A2136' }}>Lecturer</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -167,11 +159,10 @@ const Schedule = () => {
         ))}
       </Paper>
 
-      {/* Events + Attendance */}
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <Paper elevation={3} sx={{ p: 3 }}>
-            <Typography variant="h6" gutterBottom>
+      <Grid container spacing={6} justifyContent="center">
+        <Grid item xs={12} md={5.75}>
+          <Paper elevation={3} sx={{ p: 3, background: 'linear-gradient(145deg,rgb(194, 195, 198),rgb(207, 213, 248))' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#0A2136' }}>
               Upcoming Events
             </Typography>
             {upcomingEvents.length === 0 ? (
@@ -179,7 +170,7 @@ const Schedule = () => {
             ) : (
               upcomingEvents.map((event) => (
                 <Box key={event.id} sx={{ mb: 2 }}>
-                  <Typography fontWeight="bold">
+                  <Typography fontWeight="bold" sx={{ color: '#0A2136' }}>
                     <AccessTimeIcon sx={{ fontSize: 18, mr: 1, verticalAlign: 'middle' }} />
                     {event.startTime} - {event.endTime} | {event.day}
                   </Typography>
@@ -193,16 +184,18 @@ const Schedule = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={6}>
-          <Paper elevation={3} sx={{ p: 3 }}>
-            <Typography variant="h6" gutterBottom>
+        <Grid item xs={12} md={0.5}></Grid> {/* Spacer */}
+
+        <Grid item xs={12} md={5.75}>
+          <Paper elevation={3} sx={{ p: 3, background: 'linear-gradient(145deg,rgb(194, 195, 198),rgb(207, 213, 248))' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#0A2136' }}>
               Class Attendance
             </Typography>
             {mockAttendanceData.map((item, i) => {
               const percent = Math.round((item.attended / item.total) * 100);
               return (
                 <Box key={i} sx={{ mb: 2 }}>
-                  <Typography fontWeight="bold">
+                  <Typography fontWeight="bold" sx={{ color: '#0A2136' }}>
                     <SchoolIcon sx={{ fontSize: 18, mr: 1, verticalAlign: 'middle' }} />
                     {item.module} ({item.code})
                   </Typography>
