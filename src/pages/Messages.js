@@ -34,33 +34,11 @@ import {
   
   const Messages = () => {
     return (
-      <Box
-        sx={{
-          p: 4,
-          minHeight: "100vh",
-          position: "relative",
-          background: "linear-gradient(135deg, rgb(1, 20, 37), rgb(73, 73, 202))",
-          color: "#e0e0e0",
-        }}
-      >
-        {/* Dark overlay */}
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 128, 0.5)",
-            backdropFilter: "blur(10px)",
-            zIndex: -1,
-          }}
-        />
-  
+      <Box p={{ xs: 2, md: 4 }}>
         <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold" }}>
           📬 Your Messages
         </Typography>
-        <Typography variant="subtitle1" gutterBottom color="#e0e0e0">
+        <Typography variant="subtitle1" gutterBottom color="text.secondary">
           Here’s where you'll find updates from your lecturers, tutors, and system staff.
         </Typography>
   
@@ -72,18 +50,17 @@ import {
                 sx={{
                   p: 3,
                   borderRadius: 3,
-                  backgroundColor: "#333333",
-                  color: "#e0e0e0",
+                  backgroundColor: "#f9f9fb",
                   transition: "transform 0.2s",
                   "&:hover": {
                     transform: "scale(1.02)",
-                    backgroundColor: "#444",
+                    backgroundColor: "#f1f1f5",
                   },
                 }}
               >
                 <Grid container spacing={2} alignItems="center">
                   <Grid item>
-                    <Avatar sx={{ background: 'linear-gradient(145deg,rgb(194, 195, 198),rgb(207, 213, 248))' }}>
+                    <Avatar sx={{ bgcolor: "#1976d2" }}>
                       <MailIcon />
                     </Avatar>
                   </Grid>
@@ -91,12 +68,12 @@ import {
                     <Typography variant="subtitle1" fontWeight="bold">
                       {msg.subject}
                     </Typography>
-                    <Typography variant="body2" color="#bbbbbb">
+                    <Typography variant="body2" color="text.secondary">
                       From: {msg.sender}
                     </Typography>
                   </Grid>
                 </Grid>
-                <Divider sx={{ my: 2, borderColor: "#555" }} />
+                <Divider sx={{ my: 2 }} />
                 <Typography variant="body1">{msg.content}</Typography>
               </Paper>
             </Grid>
@@ -107,4 +84,3 @@ import {
   };
   
   export default Messages;
-  
