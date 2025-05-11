@@ -23,7 +23,7 @@ import SubmitTicket from "./pages/SubmitTicket";
 import AboutPage from "./pages/AboutPage";
 import ModulesPage from "./pages/ModulesPage";
 import Schedule from "./pages/Schedule";
-
+import Messages from './pages/Messages';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -53,6 +53,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/modules" element={<ModulesPage />} />
               <Route path="/schedule" element={<Schedule />} />
+              <Route path="/messages" element={<Messages />} />
 
               {/* Protected Dashboard Routes */}
               <Route
