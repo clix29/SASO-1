@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,8 +23,7 @@ import SubmitTicket from "./pages/SubmitTicket";
 import AboutPage from "./pages/AboutPage";
 import ModulesPage from "./pages/ModulesPage";
 import Schedule from "./pages/Schedule";
-import StudentAttendance from "./pages/StudentAttendance"; // Fixed the import path
-import AcademicRecord from "./pages/AcademicRecord";
+import Messages from './pages/Messages';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -53,10 +53,8 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/modules" element={<ModulesPage />} />
               <Route path="/schedule" element={<Schedule />} />
-              <Route path="/attendance" element={<StudentAttendance />} />{" "}
-              {/* Added route for StudentAttendance */}
-              <Route path="/academic" element={<AcademicRecord />} />{" "}
-              {/* Added route for AcademicRecord */}
+              <Route path="/messages" element={<Messages />} />
+
               {/* Protected Dashboard Routes */}
               <Route
                 path="/student/*"
@@ -65,7 +63,13 @@ function App() {
                     <StudentDashboard />
                   </ProtectedRoute>
                 }
-              />
+              >
+                <Route path="schedule" element={React.createElement(require('./pages/dashboards/student/Schedule').default)} />
+                <Route path="messages" element={React.createElement(require('./pages/dashboards/student/Messages').default)} />
+                <Route path="attendance" element={React.createElement(require('./pages/dashboards/student/Attendance').default)} />
+                <Route path="faq" element={React.createElement(require('./pages/dashboards/student/FAQ').default)} />
+              </Route>
+
               <Route
                 path="/lecturer/*"
                 element={
@@ -73,7 +77,13 @@ function App() {
                     <LecturerDashboard />
                   </ProtectedRoute>
                 }
-              />
+              >
+                <Route path="materials" element={React.createElement(require('./pages/dashboards/lecturer/Materials').default)} />
+                <Route path="performance" element={React.createElement(require('./pages/dashboards/lecturer/Performance').default)} />
+                <Route path="attendance" element={React.createElement(require('./pages/dashboards/lecturer/Attendance').default)} />
+                <Route path="communication" element={React.createElement(require('./pages/dashboards/lecturer/Communication').default)} />
+              </Route>
+
               <Route
                 path="/tutor/*"
                 element={
@@ -82,6 +92,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+
               <Route
                 path="/admin/*"
                 element={
@@ -90,6 +101,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+
               {/* Redirects for common URL variations */}
               <Route
                 path="/student-dashboard"
@@ -107,6 +119,7 @@ function App() {
                 path="/admin-dashboard"
                 element={<Navigate to="/admin" replace />}
               />
+
               {/* Fallback routes */}
               <Route path="/dashboard" element={<Navigate to="/" replace />} />
               <Route path="*" element={<NotFoundPage />} />
