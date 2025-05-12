@@ -1,7 +1,14 @@
-import { Typography, Box, Grid, Paper, Button } from "@mui/material";
+import { Box, Typography, Grid, Paper, Button } from "@mui/material";
+import {
+  People as UserManagementIcon,
+  CheckCircle as AttendanceIcon,
+  History as SessionLogsIcon,
+  QuestionAnswer as FAQIcon,
+  Assessment as ReportsIcon,
+} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
-const StudentDashboard = () => {
+function AdminDashboard() {
   const navigate = useNavigate();
 
   return (
@@ -13,6 +20,7 @@ const StudentDashboard = () => {
         color: "#333333", // Dark text color
       }}
     >
+      {/* Header */}
       <Typography
         variant="h4"
         gutterBottom
@@ -21,7 +29,7 @@ const StudentDashboard = () => {
           color: "#1976d2", // Primary blue for the header
         }}
       >
-        Student Dashboard
+        Admin Dashboard
       </Typography>
       <Typography
         variant="subtitle1"
@@ -30,12 +38,13 @@ const StudentDashboard = () => {
           color: "#555555", // Subtle gray for subtitle
         }}
       >
-        Welcome to your student portal. Here’s a quick overview of your academic
-        tools.
+        Welcome to the administration portal. Here's a quick overview of your
+        management tools.
       </Typography>
 
+      {/* Options */}
       <Grid container spacing={3} mt={2}>
-        {/* Upcoming Schedule */}
+        {/* User Management */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={4}
@@ -52,14 +61,15 @@ const StudentDashboard = () => {
             }}
           >
             <Typography variant="h6" fontWeight="bold">
-              Upcoming Schedule
+              User Management
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              View your upcoming classes and tutorials.
+              Upload, edit, and delete user accounts and manage permissions.
             </Typography>
             <Button
-              onClick={() => navigate("/schedule")}
+              onClick={() => navigate("/materials-management")}
               variant="outlined"
+              startIcon={<UserManagementIcon />}
               sx={{
                 borderColor: "#1976d2",
                 color: "#1976d2",
@@ -69,75 +79,37 @@ const StudentDashboard = () => {
                 },
               }}
             >
-              View Schedule
+              Manage Users
             </Button>
           </Paper>
         </Grid>
 
-        {/* Messages */}
+        {/* Monitor Attendance */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={4}
             sx={{
               p: 3,
               borderRadius: 3,
-              backgroundColor: "#ffffff",
-              color: "#333333",
+              backgroundColor: "#ffffff", // White background for cards
+              color: "#333333", // Dark text for readability
               transition: "transform 0.2s",
               "&:hover": {
                 transform: "scale(1.02)",
-                backgroundColor: "#f5f5f5",
+                backgroundColor: "#f5f5f5", // Light gray on hover
               },
             }}
           >
             <Typography variant="h6" fontWeight="bold">
-              Messages
+              Monitor Attendance
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Check new messages from lecturers and tutors.
+              Track and review attendance records across all classes and users.
             </Typography>
             <Button
-              onClick={() => navigate("/messages")}
+              onClick={() => navigate("/attendance-monitoring")}
               variant="outlined"
-              sx={{
-                borderColor: "#1976d2",
-                color: "#1976d2",
-                "&:hover": {
-                  backgroundColor: "#1976d2",
-                  color: "#ffffff",
-                },
-              }}
-            >
-              Go to Messages
-            </Button>
-          </Paper>
-        </Grid>
-
-        {/* Attendance */}
-        <Grid item xs={12} md={6}>
-          <Paper
-            elevation={4}
-            sx={{
-              p: 3,
-              borderRadius: 3,
-              backgroundColor: "#ffffff",
-              color: "#333333",
-              transition: "transform 0.2s",
-              "&:hover": {
-                transform: "scale(1.02)",
-                backgroundColor: "#f5f5f5",
-              },
-            }}
-          >
-            <Typography variant="h6" fontWeight="bold">
-              Attendance
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Track your attendance records.
-            </Typography>
-            <Button
-              onClick={() => navigate("/attendance")}
-              variant="outlined"
+              startIcon={<AttendanceIcon />}
               sx={{
                 borderColor: "#1976d2",
                 color: "#1976d2",
@@ -152,31 +124,33 @@ const StudentDashboard = () => {
           </Paper>
         </Grid>
 
-        {/* Academic Record */}
+        {/* Session Logs */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={4}
             sx={{
               p: 3,
               borderRadius: 3,
-              backgroundColor: "#ffffff",
-              color: "#333333",
+              backgroundColor: "#ffffff", // White background for cards
+              color: "#333333", // Dark text for readability
               transition: "transform 0.2s",
               "&:hover": {
                 transform: "scale(1.02)",
-                backgroundColor: "#f5f5f5",
+                backgroundColor: "#f5f5f5", // Light gray on hover
               },
             }}
           >
             <Typography variant="h6" fontWeight="bold">
-              Academic Record
+              Session Logs
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Track your academic progress and grades.
+              Review system activity logs and user sessions for security
+              monitoring.
             </Typography>
             <Button
-              onClick={() => navigate("/academic-record")}
+              onClick={() => navigate("/session")}
               variant="outlined"
+              startIcon={<SessionLogsIcon />}
               sx={{
                 borderColor: "#1976d2",
                 color: "#1976d2",
@@ -186,36 +160,38 @@ const StudentDashboard = () => {
                 },
               }}
             >
-              View Academic Record
+              View Logs
             </Button>
           </Paper>
         </Grid>
 
-        {/* FAQs / Support */}
+        {/* FAQ Oversight */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={4}
             sx={{
               p: 3,
               borderRadius: 3,
-              backgroundColor: "#ffffff",
-              color: "#333333",
+              backgroundColor: "#ffffff", // White background for cards
+              color: "#333333", // Dark text for readability
               transition: "transform 0.2s",
               "&:hover": {
                 transform: "scale(1.02)",
-                backgroundColor: "#f5f5f5",
+                backgroundColor: "#f5f5f5", // Light gray on hover
               },
             }}
           >
             <Typography variant="h6" fontWeight="bold">
-              FAQs & Support
+              FAQ Oversight
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Need help? Browse common questions or ask support.
+              Manage frequently asked questions and help content for the
+              platform.
             </Typography>
             <Button
-              onClick={() => navigate("/faq")}
+              onClick={() => navigate("/manage-faqs")}
               variant="outlined"
+              startIcon={<FAQIcon />}
               sx={{
                 borderColor: "#1976d2",
                 color: "#1976d2",
@@ -225,13 +201,54 @@ const StudentDashboard = () => {
                 },
               }}
             >
-              Visit Help Center
+              Manage FAQs
+            </Button>
+          </Paper>
+        </Grid>
+
+        {/* Reports & Analytics */}
+        <Grid item xs={12} md={12}>
+          <Paper
+            elevation={4}
+            sx={{
+              p: 3,
+              borderRadius: 3,
+              backgroundColor: "#ffffff", // White background for cards
+              color: "#333333", // Dark text for readability
+              transition: "transform 0.2s",
+              "&:hover": {
+                transform: "scale(1.02)",
+                backgroundColor: "#f5f5f5", // Light gray on hover
+              },
+            }}
+          >
+            <Typography variant="h6" fontWeight="bold">
+              Reports & Analytics
+            </Typography>
+            <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
+              Generate comprehensive reports and analyze platform metrics and
+              usage statistics.
+            </Typography>
+            <Button
+              onClick={() => navigate("/analytics")}
+              variant="outlined"
+              startIcon={<ReportsIcon />}
+              sx={{
+                borderColor: "#1976d2",
+                color: "#1976d2",
+                "&:hover": {
+                  backgroundColor: "#1976d2",
+                  color: "#ffffff",
+                },
+              }}
+            >
+              View Reports
             </Button>
           </Paper>
         </Grid>
       </Grid>
     </Box>
   );
-};
+}
 
-export default StudentDashboard;
+export default AdminDashboard;

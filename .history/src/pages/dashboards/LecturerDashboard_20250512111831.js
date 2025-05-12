@@ -1,7 +1,13 @@
-import { Typography, Box, Grid, Paper, Button } from "@mui/material";
+import { Box, Typography, Grid, Paper, Button } from "@mui/material";
+import {
+  Upload as UploadIcon,
+  BarChart as BarChartIcon,
+  CheckCircle as AttendanceIcon,
+  Forum as ForumIcon,
+} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
-const StudentDashboard = () => {
+function LecturerDashboard() {
   const navigate = useNavigate();
 
   return (
@@ -13,6 +19,7 @@ const StudentDashboard = () => {
         color: "#333333", // Dark text color
       }}
     >
+      {/* Header */}
       <Typography
         variant="h4"
         gutterBottom
@@ -21,7 +28,7 @@ const StudentDashboard = () => {
           color: "#1976d2", // Primary blue for the header
         }}
       >
-        Student Dashboard
+        Lecturer Dashboard
       </Typography>
       <Typography
         variant="subtitle1"
@@ -30,12 +37,13 @@ const StudentDashboard = () => {
           color: "#555555", // Subtle gray for subtitle
         }}
       >
-        Welcome to your student portal. Here’s a quick overview of your academic
-        tools.
+        Welcome to the lecturer management portal. Here’s a quick overview of
+        your tools.
       </Typography>
 
+      {/* Options */}
       <Grid container spacing={3} mt={2}>
-        {/* Upcoming Schedule */}
+        {/* Class & Course Materials */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={4}
@@ -52,14 +60,15 @@ const StudentDashboard = () => {
             }}
           >
             <Typography variant="h6" fontWeight="bold">
-              Upcoming Schedule
+              Class & Course Materials
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              View your upcoming classes and tutorials.
+              Upload and manage materials for your classes and courses.
             </Typography>
             <Button
-              onClick={() => navigate("/schedule")}
+              onClick={() => navigate("/materials")}
               variant="outlined"
+              startIcon={<UploadIcon />}
               sx={{
                 borderColor: "#1976d2",
                 color: "#1976d2",
@@ -69,36 +78,37 @@ const StudentDashboard = () => {
                 },
               }}
             >
-              View Schedule
+              Manage Materials
             </Button>
           </Paper>
         </Grid>
 
-        {/* Messages */}
+        {/* Performance Analytics */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={4}
             sx={{
               p: 3,
               borderRadius: 3,
-              backgroundColor: "#ffffff",
-              color: "#333333",
+              backgroundColor: "#ffffff", // White background for cards
+              color: "#333333", // Dark text for readability
               transition: "transform 0.2s",
               "&:hover": {
                 transform: "scale(1.02)",
-                backgroundColor: "#f5f5f5",
+                backgroundColor: "#f5f5f5", // Light gray on hover
               },
             }}
           >
             <Typography variant="h6" fontWeight="bold">
-              Messages
+              Performance Analytics
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Check new messages from lecturers and tutors.
+              Analyze student performance and track progress.
             </Typography>
             <Button
-              onClick={() => navigate("/messages")}
+              onClick={() => navigate("/performance")}
               variant="outlined"
+              startIcon={<BarChartIcon />}
               sx={{
                 borderColor: "#1976d2",
                 color: "#1976d2",
@@ -108,36 +118,37 @@ const StudentDashboard = () => {
                 },
               }}
             >
-              Go to Messages
+              View Analytics
             </Button>
           </Paper>
         </Grid>
 
-        {/* Attendance */}
+        {/* Attendance Review */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={4}
             sx={{
               p: 3,
               borderRadius: 3,
-              backgroundColor: "#ffffff",
-              color: "#333333",
+              backgroundColor: "#ffffff", // White background for cards
+              color: "#333333", // Dark text for readability
               transition: "transform 0.2s",
               "&:hover": {
                 transform: "scale(1.02)",
-                backgroundColor: "#f5f5f5",
+                backgroundColor: "#f5f5f5", // Light gray on hover
               },
             }}
           >
             <Typography variant="h6" fontWeight="bold">
-              Attendance
+              Attendance Review
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Track your attendance records.
+              Review and manage student attendance records.
             </Typography>
             <Button
-              onClick={() => navigate("/attendance")}
+              onClick={() => navigate("/lecturer-attendance")}
               variant="outlined"
+              startIcon={<AttendanceIcon />}
               sx={{
                 borderColor: "#1976d2",
                 color: "#1976d2",
@@ -147,36 +158,37 @@ const StudentDashboard = () => {
                 },
               }}
             >
-              View Attendance
+              Review Attendance
             </Button>
           </Paper>
         </Grid>
 
-        {/* Academic Record */}
+        {/* Communication Panel */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={4}
             sx={{
               p: 3,
               borderRadius: 3,
-              backgroundColor: "#ffffff",
-              color: "#333333",
+              backgroundColor: "#ffffff", // White background for cards
+              color: "#333333", // Dark text for readability
               transition: "transform 0.2s",
               "&:hover": {
                 transform: "scale(1.02)",
-                backgroundColor: "#f5f5f5",
+                backgroundColor: "#f5f5f5", // Light gray on hover
               },
             }}
           >
             <Typography variant="h6" fontWeight="bold">
-              Academic Record
+              Communication Panel
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Track your academic progress and grades.
+              Communicate with students and manage announcements.
             </Typography>
             <Button
-              onClick={() => navigate("/academic-record")}
+              onClick={() => navigate("/communication")}
               variant="outlined"
+              startIcon={<ForumIcon />}
               sx={{
                 borderColor: "#1976d2",
                 color: "#1976d2",
@@ -186,52 +198,13 @@ const StudentDashboard = () => {
                 },
               }}
             >
-              View Academic Record
-            </Button>
-          </Paper>
-        </Grid>
-
-        {/* FAQs / Support */}
-        <Grid item xs={12} md={6}>
-          <Paper
-            elevation={4}
-            sx={{
-              p: 3,
-              borderRadius: 3,
-              backgroundColor: "#ffffff",
-              color: "#333333",
-              transition: "transform 0.2s",
-              "&:hover": {
-                transform: "scale(1.02)",
-                backgroundColor: "#f5f5f5",
-              },
-            }}
-          >
-            <Typography variant="h6" fontWeight="bold">
-              FAQs & Support
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Need help? Browse common questions or ask support.
-            </Typography>
-            <Button
-              onClick={() => navigate("/faq")}
-              variant="outlined"
-              sx={{
-                borderColor: "#1976d2",
-                color: "#1976d2",
-                "&:hover": {
-                  backgroundColor: "#1976d2",
-                  color: "#ffffff",
-                },
-              }}
-            >
-              Visit Help Center
+              Open Panel
             </Button>
           </Paper>
         </Grid>
       </Grid>
     </Box>
   );
-};
+}
 
-export default StudentDashboard;
+export default LecturerDashboard;

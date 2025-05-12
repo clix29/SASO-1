@@ -1,16 +1,18 @@
-import { useState } from 'react';
-import { 
-  Typography, 
-  Box, 
-  Paper, 
-  Grid, 
-  Tabs, 
-  Tab, 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableContainer, 
-  TableHead, 
+
+import { useState, useEffect } from 'react';
+import {
+  Typography,
+  Box,
+  Paper,
+  Grid,
+  Tabs,
+  Tab,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+
   TableRow,
   Chip,
   IconButton
@@ -114,6 +116,36 @@ const getTypeColor = (type) => {
   }
 };
 
+
+const getDateTimeFromSchedule = (day, time) => {
+  const dayMap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const now = new Date();
+  const targetDay = dayMap.indexOf(day);
+  const currentDay = now.getDay();
+  const dayDiff = (targetDay - currentDay + 7) % 7;
+  const [hour, minute] = time.split(':');
+  const date = new Date(now);
+  date.setDate(now.getDate() + dayDiff);
+  date.setHours(parseInt(hour), parseInt(minute), 0, 0);
+  return date;
+};
+
+const getUpcomingSessions = () => {
+  const now = new Date();
+  return mockScheduleData
+    .map(session => ({ ...session, dateTime: getDateTimeFromSchedule(session.day, session.startTime) }))
+    .filter(session => session.dateTime > now)
+    .sort((a, b) => a.dateTime - b.dateTime)
+    .slice(0, 3);
+};
+
+const mockAttendanceData = [
+  { module: 'Introduction to Programming', code: 'CS101', attended: 8, total: 10 },
+  { module: 'Database Systems', code: 'CS205', attended: 7, total: 9 },
+  { module: 'Software Engineering', code: 'CS301', attended: 9, total: 10 }
+];
+
+
 const Schedule = () => {
   const [currentTab, setCurrentTab] = useState(0);
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
@@ -123,6 +155,7 @@ const Schedule = () => {
   };
 
   return (
+
     <Box>
       <Typography variant="h4" gutterBottom>
         Class Schedule
@@ -132,6 +165,7 @@ const Schedule = () => {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
           <Typography variant="h6">
             <CalendarMonthIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
+
             Weekly Timetable
           </Typography>
           <IconButton 
@@ -142,6 +176,7 @@ const Schedule = () => {
             <DownloadIcon />
           </IconButton>
         </Box>
+
         
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs 
@@ -177,6 +212,8 @@ const Schedule = () => {
                         <TableCell>Type</TableCell>
                         <TableCell>Location</TableCell>
                         <TableCell>Lecturer</TableCell>
+
+
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -230,6 +267,7 @@ const Schedule = () => {
           </Box>
         ))}
       </Paper>
+
       
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
@@ -251,6 +289,7 @@ const Schedule = () => {
             <Typography variant="body2">
               Track your attendance and view your attendance statistics here.
             </Typography>
+
           </Paper>
         </Grid>
       </Grid>

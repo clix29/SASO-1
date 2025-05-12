@@ -1,5 +1,4 @@
-
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from "react";
 import {
   TextField,
   Button,
@@ -9,11 +8,9 @@ import {
   Box,
   Stack,
   Grid,
-
-} from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { AuthContext } from '../context/AuthContext';
-
+} from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { AuthContext } from "../context/AuthContext";
 
 const LoginForm = ({ role, onBack }) => {
   const [email, setEmail] = useState("");
@@ -30,29 +27,26 @@ const LoginForm = ({ role, onBack }) => {
   };
 
   return (
-
-    <Grid container sx={{ minHeight: '100vh' }}>
-
+    <Grid container sx={{ minHeight: "100vh" }}>
       {/* Welcome Message Section */}
       <Grid
         item
         xs={12}
         md={6}
-     
-          backgroundColor: '#1976d2',
-          color: '#ffffff',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
+        sx={{
+          backgroundColor: "#1976d2",
+          color: "#ffffff",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
           p: 4,
         }}
       >
-        <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2 }}>
+        <Typography variant="h3" sx={{ fontWeight: "bold", mb: 2 }}>
           Welcome Back!
         </Typography>
-        <Typography variant="h6" sx={{ textAlign: 'center', maxWidth: 400 }}>
-
+        <Typography variant="h6" sx={{ textAlign: "center", maxWidth: 400 }}>
           Log in to access your dashboard and manage your tasks efficiently.
         </Typography>
       </Grid>
@@ -63,24 +57,21 @@ const LoginForm = ({ role, onBack }) => {
         xs={12}
         md={6}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
           p: 4,
         }}
       >
-        <Box sx={{ width: '100%', maxWidth: 400 }}>
-
+        <Box sx={{ width: "100%", maxWidth: 400 }}>
           <IconButton onClick={onBack} size="small" sx={{ mb: 1 }}>
             <ArrowBackIcon />
           </IconButton>
           <Typography
             variant="h5"
             gutterBottom
-
-            sx={{ textTransform: 'capitalize', fontWeight: 'bold' }}
-
+            sx={{ textTransform: "capitalize", fontWeight: "bold" }}
           >
             {role} Login
           </Typography>

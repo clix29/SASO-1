@@ -26,15 +26,10 @@ const Sidebar = () => {
   const location = useLocation();
 
   const dashboardItems = [
-    { text: 'Student Dashboard', icon: <StudentIcon />, path: '/student' },
-    { text: 'Lecture Dashboard', icon: <LectureIcon />, path: '/lecture' },
-    { text: 'Tutor Dashboard', icon: <TutorIcon />, path: '/tutor' },
-    { text: 'Admin Dashboard', icon: <AdminIcon />, path: '/admin' },
     { text: "Student Dashboard", icon: <StudentIcon />, path: "/student" },
     { text: "Lecture Dashboard", icon: <LectureIcon />, path: "/lecture" },
     { text: "Tutor Dashboard", icon: <TutorIcon />, path: "/tutor" },
     { text: "Admin Dashboard", icon: <AdminIcon />, path: "/admin" },
-
   ];
 
   const menuItems = [
@@ -44,28 +39,40 @@ const Sidebar = () => {
     { text: "LOGIN", icon: <LoginIcon />, path: "/login" },
   ];
 
-  return
-    <Box sx={{ 
-      width: 280,
-      p: 3,
-      borderRight: '1px solid #e0e0e0',
-      height: '100vh',
-      backgroundColor: '#f8f9fa',
-      display: { xs: 'none', sm: 'block' }, // Responsive, hide on small screens
-    }}>
-    
-   
-
+  return (
+    <Box
+      sx={{
+        width: 280,
+        p: 3,
+        borderRight: "1px solid #e0e0e0",
+        height: "100vh",
+        backgroundColor: "#f8f9fa",
+        display: { xs: "none", sm: "block" }, // Responsive, hide on small screens
+      }}
+    >
+      {/* Header */}
+      <Typography
+        variant="h5"
+        sx={{
+          fontWeight: "bold",
+          mb: 3,
+          color: "#2c387e",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        Welcome to SASO System
       </Typography>
 
       {/* Dashboard Navigation */}
-      <Typography variant="subtitle1" sx={{ 
-        fontWeight: 'bold',
-        mb: 1,
-        color: '#2c387e'
-      }}>
-   }
-     
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontWeight: "bold",
+          mb: 1,
+          color: "#2c387e",
+        }}
+      >
         DASHBOARDS
       </Typography>
 
@@ -89,14 +96,11 @@ const Sidebar = () => {
               }}
             >
               <ListItemIcon sx={{ minWidth: 36 }}>{item.icon}</ListItemIcon>
-
-              <ListItemText 
-                primary={item.text} 
-                primaryTypographyProps={{ 
-                  fontWeight: 'medium',
-                  fontSize: '0.95rem'
-
-            
+              <ListItemText
+                primary={item.text}
+                primaryTypographyProps={{
+                  fontWeight: "medium",
+                  fontSize: "0.95rem",
                 }}
               />
             </ListItemButton>
@@ -127,13 +131,11 @@ const Sidebar = () => {
               }}
             >
               <ListItemIcon sx={{ minWidth: 36 }}>{item.icon}</ListItemIcon>
-
-              <ListItemText 
-                primary={item.text} 
-                primaryTypographyProps={{ 
-                  fontWeight: item.text === 'HOME' ? 'bold' : 'medium',
-                  fontSize: item.text === 'HOME' ? '1.1rem' : '1rem'
-
+              <ListItemText
+                primary={item.text}
+                primaryTypographyProps={{
+                  fontWeight: item.text === "HOME" ? "bold" : "medium",
+                  fontSize: item.text === "HOME" ? "1.1rem" : "1rem",
                 }}
               />
             </ListItemButton>
