@@ -16,9 +16,9 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const quickAccessItems = [
-    { title: "Student Portal", icon: "🎓", path: "/student" },
+    { title: "Student Portal", icon: "👨🎓", path: "/student" },
     { title: "Lecture Materials", icon: "📚", path: "/lecture" },
-    { title: "Tutor Support", icon: "🧑‍🏫", path: "/tutor" },
+    { title: "Tutor Support", icon: "👨🏫", path: "/tutor" },
     { title: "Admin Panel", icon: "⚙️", path: "/admin" },
     { title: "Submit Enquiry", icon: "📨", path: "/ticket" },
   ];
@@ -29,72 +29,27 @@ const HomePage = () => {
   ];
 
   return (
-    <Box
-      sx={{
-        p: 4,
-        minHeight: "100vh",
-        position: "relative", // Set position to relative for overlay positioning
-        background: "linear-gradient(135deg,rgb(1, 20, 37),rgb(73, 73, 202))", // Navy blue gradient background
-        color: "#e0e0e0", // Light gray text for better contrast
-      }}
-    >
-      {/* Dark overlay with blur effect */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: "rgba(0, 0, 128, 0.5)", // Darker transparent overlay for a more subtle effect
-          backdropFilter: "blur(10px)", // Apply blur effect
-          zIndex: -1, // Keep the overlay behind the content
-        }}
-      />
-
-      {/* Header */}
-      <Typography
-        variant="h4"
-        gutterBottom
-        sx={{
-          color: "#ffffff", // White text for the header
-          fontWeight: "bold",
-          textAlign: "center",
-        }}
-      >
+    <Box sx={{ p: 4 }}>
+      {/* 1. System Overview */}
+      <Typography variant="h4" gutterBottom>
         Welcome to the SDS System
       </Typography>
-      <Typography
-        variant="body1"
-        sx={{
-          mb: 4,
-          textAlign: "center",
-          color: "#e0e0e0", // Light gray for body text
-        }}
-      >
+      <Typography variant="body1" sx={{ mb: 4 }}>
         The Student Data System (SDS) is your central platform for managing
         academic activities, accessing resources, and staying updated with
         important information.
       </Typography>
 
-      {/* Announcements */}
-      <Typography
-        variant="h5"
-        sx={{
-          mb: 2,
-          color: "#ffffff", // White text for section titles
-          fontWeight: "bold",
-        }}
-      >
+      {/* 2. Announcements */}
+      <Typography variant="h5" sx={{ mb: 2 }}>
         News & Announcements
       </Typography>
       <List
         sx={{
-          bgcolor: "#333333", // Dark background for the list
-          boxShadow: 3,
-          borderRadius: 2,
+          bgcolor: "background.paper",
+          boxShadow: 2,
+          borderRadius: 1,
           mb: 4,
-          border: "1px solid #444", // Subtle dark border for contrast
         }}
       >
         {announcements.map((item, index) => (
@@ -102,53 +57,25 @@ const HomePage = () => {
             <ListItemText
               primary={item.text}
               secondary={item.date}
-              primaryTypographyProps={{
-                fontWeight: "medium",
-                color: "#ffffff", // White text for announcements
-              }}
-              secondaryTypographyProps={{
-                color: "#90caf9", // Lighter blue for dates
-              }}
+              primaryTypographyProps={{ fontWeight: "medium" }}
             />
           </ListItem>
         ))}
       </List>
 
-      {/* Quick Access Cards */}
-      <Typography
-        variant="h5"
-        sx={{
-          mb: 2,
-          color: "#ffffff", // White text for section titles
-          fontWeight: "bold",
-        }}
-      >
+      {/* 3. Quick Access */}
+      <Typography variant="h5" sx={{ mb: 2 }}>
         Quick Access
       </Typography>
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {quickAccessItems.map((item) => (
           <Grid item xs={12} sm={6} md={3} key={item.title}>
-            <Card
-              sx={{
-                height: "100%",
-                boxShadow: 4,
-                borderRadius: 2,
-                backgroundColor: "#1c1c1c", // Dark background for cards
-                color: "#e0e0e0", // Light gray text for readability
-              }}
-            >
+            <Card sx={{ height: "100%", boxShadow: 3 }}>
               <CardContent sx={{ textAlign: "center" }}>
                 <Typography variant="h3" sx={{ mb: 2 }}>
                   {item.icon}
                 </Typography>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    mb: 2,
-                    fontWeight: "bold",
-                    color: "#ffffff", // White text for the card titles
-                  }}
-                >
+                <Typography variant="h6" sx={{ mb: 2 }}>
                   {item.title}
                 </Typography>
                 <Button
@@ -156,13 +83,6 @@ const HomePage = () => {
                   onClick={() => navigate(item.path)}
                   fullWidth
                   size="small"
-                  sx={{
-                    backgroundColor: "#1976d2", // Light blue button for dark theme
-                    color: "#ffffff",
-                    "&:hover": {
-                      backgroundColor: "#1565c0", // Darker blue on hover
-                    },
-                  }}
                 >
                   Go
                 </Button>
@@ -172,42 +92,18 @@ const HomePage = () => {
         ))}
       </Grid>
 
-      {/* Login and Sign Up */}
-      <Typography
-        variant="h5"
-        sx={{
-          mb: 2,
-          color: "#ffffff", // White text for section titles
-          fontWeight: "bold",
-        }}
-      >
+      {/* 4. Login / Sign Up */}
+      <Typography variant="h5" sx={{ mb: 2 }}>
         Get Started
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <Paper
-            sx={{
-              p: 3,
-              textAlign: "center",
-              borderRadius: 2,
-              boxShadow: 2,
-              backgroundColor: "#333333", // Dark background for login/signup
-              color: "#e0e0e0", // Light gray text for readability
-            }}
-          >
-            <Typography variant="h6" sx={{ mb: 1 }}>
-              Already have an account?
-            </Typography>
+          <Paper sx={{ p: 3, textAlign: "center" }}>
+            <Typography variant="h6">Already have an account?</Typography>
             <Button
               variant="contained"
               fullWidth
-              sx={{
-                mt: 2,
-                backgroundColor: "#1976d2", // Light blue button for dark theme
-                "&:hover": {
-                  backgroundColor: "#1565c0", // Darker blue on hover
-                },
-              }}
+              sx={{ mt: 2 }}
               onClick={() => navigate("/login")}
             >
               Login
@@ -215,32 +111,12 @@ const HomePage = () => {
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Paper
-            sx={{
-              p: 3,
-              textAlign: "center",
-              borderRadius: 2,
-              boxShadow: 2,
-              backgroundColor: "#333333", // Dark background for sign up section
-              color: "#e0e0e0", // Light gray text for readability
-            }}
-          >
-            <Typography variant="h6" sx={{ mb: 1 }}>
-              New here?
-            </Typography>
+          <Paper sx={{ p: 3, textAlign: "center" }}>
+            <Typography variant="h6">New here?</Typography>
             <Button
               variant="outlined"
               fullWidth
-              sx={{
-                mt: 2,
-                borderColor: "#1976d2", // Light blue border for sign up button
-                color: "#1976d2", // Blue text for sign up
-                "&:hover": {
-                  borderColor: "#1565c0", // Darker blue on hover
-                  backgroundColor: "#1565c0", // Darker blue background
-                  color: "#ffffff", // White text on hover
-                },
-              }}
+              sx={{ mt: 2 }}
               onClick={() => navigate("/register")}
             >
               Sign Up

@@ -43,16 +43,16 @@ const Sidebar = () => {
     <Box sx={{ 
       width: 280,
       p: 3,
-      borderRight: '1px solidrgba(224, 224, 224, 0.66)',
+      borderRight: '1px solid #e0e0e0',
       height: '100vh',
-      background: 'linear-gradient(145deg,rgb(117, 122, 148),rgb(48, 56, 100))', // Gradient background
+      backgroundColor: '#f8f9fa',
       display: { xs: 'none', sm: 'block' }, // Responsive, hide on small screens
     }}>
       {/* Header */}
       <Typography variant="h5" sx={{ 
         fontWeight: 'bold', 
         mb: 3,
-        color: '#ffffff', // White text for better contrast
+        color: '#2c387e',
         display: 'flex',
         alignItems: 'center'
       }}>
@@ -63,7 +63,7 @@ const Sidebar = () => {
       <Typography variant="subtitle1" sx={{ 
         fontWeight: 'bold',
         mb: 1,
-        color: '#ffffff' // White text for subtitle
+        color: '#2c387e'
       }}>
         DASHBOARDS
       </Typography>
@@ -92,8 +92,7 @@ const Sidebar = () => {
                 primary={item.text} 
                 primaryTypographyProps={{ 
                   fontWeight: 'medium',
-                  fontSize: '0.95rem',
-                  color: '#ffffff' // White text for better visibility
+                  fontSize: '0.95rem'
                 }}
               />
             </ListItemButton>
@@ -132,8 +131,7 @@ const Sidebar = () => {
                 primary={item.text} 
                 primaryTypographyProps={{ 
                   fontWeight: item.text === 'HOME' ? 'bold' : 'medium',
-                  fontSize: item.text === 'HOME' ? '1.1rem' : '1rem',
-                  color: '#ffffff' // White text for visibility
+                  fontSize: item.text === 'HOME' ? '1.1rem' : '1rem'
                 }}
               />
             </ListItemButton>

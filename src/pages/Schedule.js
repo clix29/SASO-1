@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { 
-  Typography, 
-  Box, 
-  Paper, 
-  Grid, 
-  Tabs, 
-  Tab, 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableContainer, 
-  TableHead, 
+import {
+  Typography,
+  Box,
+  Paper,
+  Grid,
+  Tabs,
+  Tab,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
   TableRow,
   Chip,
   IconButton,
@@ -51,7 +51,7 @@ const getTypeColor = (type) => {
 };
 
 const getDateTimeFromSchedule = (day, time) => {
-  const dayMap = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const dayMap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const now = new Date();
   const targetDay = dayMap.indexOf(day);
   const currentDay = now.getDay();
@@ -89,14 +89,14 @@ const Schedule = () => {
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   return (
-    <Box sx={{ background: "linear-gradient(135deg,rgb(1, 20, 37),rgb(73, 73, 202))", p: 3 }}>
-      <Typography variant="h4" gutterBottom sx={{ color: '#ffffff' }}>
+    <Box p={3}>
+      <Typography variant="h4" gutterBottom>
         Class Schedule
       </Typography>
 
-      <Paper elevation={3} sx={{ p: 3, mb: 3, background: 'linear-gradient(145deg,rgb(194, 195, 198),rgb(207, 213, 248))' }}>
+      <Paper elevation={3} sx={{ p: 2, mb: 3 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <Typography variant="h6" sx={{ color: '#0A2136' }}>
+          <Typography variant="h6">
             <CalendarMonthIcon sx={{ mr: 1 }} />
             Weekly Timetable
           </Typography>
@@ -114,13 +114,13 @@ const Schedule = () => {
             {scheduleByDay[day].length > 0 ? (
               <TableContainer>
                 <Table>
-                  <TableHead sx={{ backgroundColor: '#E1F0FF' }}>
+                  <TableHead sx={{ backgroundColor: '#f5f5f5' }}>
                     <TableRow>
-                      <TableCell sx={{ color: '#0A2136' }}>Time</TableCell>
-                      <TableCell sx={{ color: '#0A2136' }}>Module</TableCell>
-                      <TableCell sx={{ color: '#0A2136' }}>Type</TableCell>
-                      <TableCell sx={{ color: '#0A2136' }}>Location</TableCell>
-                      <TableCell sx={{ color: '#0A2136' }}>Lecturer</TableCell>
+                      <TableCell>Time</TableCell>
+                      <TableCell>Module</TableCell>
+                      <TableCell>Type</TableCell>
+                      <TableCell>Location</TableCell>
+                      <TableCell>Lecturer</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -159,10 +159,10 @@ const Schedule = () => {
         ))}
       </Paper>
 
-      <Grid container spacing={6} justifyContent="center">
-        <Grid item xs={12} md={5.75}>
-          <Paper elevation={3} sx={{ p: 3, background: 'linear-gradient(145deg,rgb(194, 195, 198),rgb(207, 213, 248))' }}>
-            <Typography variant="h6" gutterBottom sx={{ color: '#0A2136' }}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6" gutterBottom>
               Upcoming Events
             </Typography>
             {upcomingEvents.length === 0 ? (
@@ -170,7 +170,7 @@ const Schedule = () => {
             ) : (
               upcomingEvents.map((event) => (
                 <Box key={event.id} sx={{ mb: 2 }}>
-                  <Typography fontWeight="bold" sx={{ color: '#0A2136' }}>
+                  <Typography fontWeight="bold">
                     <AccessTimeIcon sx={{ fontSize: 18, mr: 1, verticalAlign: 'middle' }} />
                     {event.startTime} - {event.endTime} | {event.day}
                   </Typography>
@@ -184,18 +184,16 @@ const Schedule = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={0.5}></Grid> {/* Spacer */}
-
-        <Grid item xs={12} md={5.75}>
-          <Paper elevation={3} sx={{ p: 3, background: 'linear-gradient(145deg,rgb(194, 195, 198),rgb(207, 213, 248))' }}>
-            <Typography variant="h6" gutterBottom sx={{ color: '#0A2136' }}>
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6" gutterBottom>
               Class Attendance
             </Typography>
             {mockAttendanceData.map((item, i) => {
               const percent = Math.round((item.attended / item.total) * 100);
               return (
                 <Box key={i} sx={{ mb: 2 }}>
-                  <Typography fontWeight="bold" sx={{ color: '#0A2136' }}>
+                  <Typography fontWeight="bold">
                     <SchoolIcon sx={{ fontSize: 18, mr: 1, verticalAlign: 'middle' }} />
                     {item.module} ({item.code})
                   </Typography>
