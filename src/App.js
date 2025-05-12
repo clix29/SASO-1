@@ -38,7 +38,7 @@ import Communication from "./pages/Communication";
 import MaterialsManagement from "./pages/MaterialsManagement";
 import AttendanceMonitoring from "./pages/AttendenceMonitor";
 import Session from "./pages/session";
-import Analytics from "./pages/Analytics";
+import Analytics from "./pages/Analytics"
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -68,9 +68,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/modules" element={<ModulesPage />} />
               <Route path="/schedule" element={<Schedule />} />
-              <Route path="/messages" element={<Messages />} />
-              <Route path="/attendance" element={<StudentAttendance />} />{" "}
-              {/* Add this route */}
+              
               <Route path="/academic-record" element={<AcademicRecord />} />
               <Route path="/tutor" element={<TutorDashboard />} />
               <Route path="/profile" element={<Profile />} />
@@ -78,6 +76,22 @@ function App() {
               <Route path="/notify-students" element={<NotifyStudents />} />
               <Route path="/manage-faqs" element={<ManageFAQs />} />
               <Route path="/student-progress" element={<StudentProgress />} />
+              <Route path="/lecture" element={<LecturerDashboard />} /> 
+              <Route path="/lecturer-attendance" element={<StudentAttend />} /> {/* Add this route */}
+              <Route path="/materials" element={<Materials />} /> {/* Add this route */}  
+              <Route path="/performance" element={<Performance />} /> {/* Add this route */}
+              <Route path="/communication" element={<Communication />} /> {/* Add this route */}
+              <Route path="/admin" element={<AdminDashboard />} /> {/* Add this route */}
+              <Route path="/materials-management" element={<MaterialsManagement />} /> {/* Add this route */}
+              <Route path="/attendance-monitoring" element={<AttendanceMonitoring />} /> {/* Add this route */}
+              <Route path="/session" element={<Session />} /> {/* Add this route */}
+              <Route path="/analytics" element={<Analytics />} /> {/* Add this route */}
+
+
+              {/* Redirects for common URL variations */}
+
+              {/* Protected Routes */}
+
               <Route path="/lecture" element={<LecturerDashboard />} />
               <Route
                 path="/lecturer-attendance"
@@ -107,7 +121,7 @@ function App() {
               <Route path="/analytics" element={<Analytics />} />{" "}
               {/* Add this route */}
               {/* Redirects for common URL variations */}
-              {/* Protected Routes */}
+              
               {/* Protected Dashboard Routes */}
               <Route
                 path="/student/*"

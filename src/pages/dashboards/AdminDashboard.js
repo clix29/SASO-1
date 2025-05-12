@@ -1,4 +1,12 @@
-import { Box, Typography, Grid, Paper, Button } from "@mui/material";
+
+import {
+  Box,
+  Typography,
+  Grid,
+  Paper,
+  Button,
+} from "@mui/material";
+
 import {
   People as UserManagementIcon,
   CheckCircle as AttendanceIcon,
@@ -38,8 +46,9 @@ function AdminDashboard() {
           color: "#555555", // Subtle gray for subtitle
         }}
       >
-        Welcome to the administration portal. Here's a quick overview of your
-        management tools.
+
+        Welcome to the administration portal. Here's a quick overview of your management tools.
+
       </Typography>
 
       {/* Options */}
@@ -144,8 +153,9 @@ function AdminDashboard() {
               Session Logs
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Review system activity logs and user sessions for security
-              monitoring.
+
+              Review system activity logs and user sessions for security monitoring.
+
             </Typography>
             <Button
               onClick={() => navigate("/session")}
@@ -185,8 +195,9 @@ function AdminDashboard() {
               FAQ Oversight
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Manage frequently asked questions and help content for the
-              platform.
+
+              Manage frequently asked questions and help content for the platform.
+
             </Typography>
             <Button
               onClick={() => navigate("/manage-faqs")}
@@ -226,8 +237,9 @@ function AdminDashboard() {
               Reports & Analytics
             </Typography>
             <Typography variant="body2" sx={{ color: "#555555", mb: 2 }}>
-              Generate comprehensive reports and analyze platform metrics and
-              usage statistics.
+
+              Generate comprehensive reports and analyze platform metrics and usage statistics.
+
             </Typography>
             <Button
               onClick={() => navigate("/analytics")}

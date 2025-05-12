@@ -1,4 +1,12 @@
-import { Box, Typography, Grid, Paper, Button } from "@mui/material";
+
+import {
+  Box,
+  Typography,
+  Grid,
+  Paper,
+  Button,
+} from "@mui/material";
+
 import {
   Upload as UploadIcon,
   BarChart as BarChartIcon,
@@ -37,8 +45,9 @@ function LecturerDashboard() {
           color: "#555555", // Subtle gray for subtitle
         }}
       >
-        Welcome to the lecturer management portal. Here’s a quick overview of
-        your tools.
+
+        Welcome to the lecturer management portal. Here’s a quick overview of your tools.
+
       </Typography>
 
       {/* Options */}

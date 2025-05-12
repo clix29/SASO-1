@@ -1,4 +1,13 @@
-import { Box, Typography, Paper, Grid, Avatar, Divider } from "@mui/material";
+
+import {
+  Box,
+  Typography,
+  Paper,
+  Grid,
+  Avatar,
+  Divider,
+} from "@mui/material";
+
 import MailIcon from "@mui/icons-material/Mail";
 
 const messages = [
@@ -53,8 +62,9 @@ const Messages = () => {
           color: "#555555", // Subtle gray for subtitle
         }}
       >
-        Here’s where you'll find updates from your lecturers, tutors, and system
-        staff.
+
+        Here’s where you'll find updates from your lecturers, tutors, and system staff.
+
       </Typography>
 
       <Grid container spacing={3} mt={2}>
