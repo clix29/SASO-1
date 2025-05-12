@@ -30,10 +30,6 @@ const Sidebar = () => {
     { text: "Lecture Dashboard", icon: <LectureIcon />, path: "/lecture" },
     { text: "Tutor Dashboard", icon: <TutorIcon />, path: "/tutor" },
     { text: "Admin Dashboard", icon: <AdminIcon />, path: "/admin" },
-    { text: "Student Dashboard", icon: <StudentIcon />, path: "/student" },
-    { text: "Lecture Dashboard", icon: <LectureIcon />, path: "/lecture" },
-    { text: "Tutor Dashboard", icon: <TutorIcon />, path: "/tutor" },
-    { text: "Admin Dashboard", icon: <AdminIcon />, path: "/admin" },
   ];
 
   const menuItems = [
@@ -54,6 +50,21 @@ const Sidebar = () => {
         display: { xs: "none", sm: "block" }, // Responsive, hide on small screens
       }}
     >
+      {/* Header */}
+      <Typography
+        variant="h5"
+        sx={{
+          fontWeight: "bold",
+          mb: 3,
+          color: "#2c387e",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        Welcome to SASO System
+      </Typography>
+
+      {/* Dashboard Navigation */}
       <Typography
         variant="subtitle1"
         sx={{
@@ -65,7 +76,6 @@ const Sidebar = () => {
         DASHBOARDS
       </Typography>
 
-      {/* Dashboard Navigation */}
       <List dense>
         {dashboardItems.map((item, index) => (
           <ListItem key={index} disablePadding sx={{ mb: 1.5 }}>
@@ -86,7 +96,6 @@ const Sidebar = () => {
               }}
             >
               <ListItemIcon sx={{ minWidth: 36 }}>{item.icon}</ListItemIcon>
-
               <ListItemText
                 primary={item.text}
                 primaryTypographyProps={{
@@ -122,7 +131,6 @@ const Sidebar = () => {
               }}
             >
               <ListItemIcon sx={{ minWidth: 36 }}>{item.icon}</ListItemIcon>
-
               <ListItemText
                 primary={item.text}
                 primaryTypographyProps={{
