@@ -1,5 +1,14 @@
 import React, { useState, useContext } from 'react';
-import { TextField, Button, Typography, Alert, IconButton, Box, Stack } from '@mui/material';
+import {
+  TextField,
+  Button,
+  Typography,
+  Alert,
+  IconButton,
+  Box,
+  Stack,
+  Grid,
+} from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { AuthContext } from '../context/AuthContext';
 
@@ -18,38 +27,85 @@ const LoginForm = ({ role, onBack }) => {
   };
 
   return (
-    <Box>
-      <IconButton onClick={onBack} size="small" sx={{ mb: 1 }}>
-        <ArrowBackIcon />
-      </IconButton>
-      <Typography variant="h5" gutterBottom sx={{ textTransform: 'capitalize', fontWeight: 'bold' }}>
-        {role} Login
-      </Typography>
-      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
-      <form onSubmit={handleSubmit}>
-        <Stack spacing={2}>
-          <TextField
-            label="Email"
-            type="email"
-            fullWidth
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <TextField
-            label="Password"
-            type="password"
-            fullWidth
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <Button type="submit" variant="contained" size="large">
-            Login
-          </Button>
-        </Stack>
-      </form>
-    </Box>
+    <Grid container sx={{ minHeight: '100vh' }}>
+      {/* Welcome Message Section */}
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sx={{
+          backgroundColor: '#1976d2',
+          color: '#ffffff',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          p: 4,
+        }}
+      >
+        <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2 }}>
+          Welcome Back!
+        </Typography>
+        <Typography variant="h6" sx={{ textAlign: 'center', maxWidth: 400 }}>
+          Log in to access your dashboard and manage your tasks efficiently.
+        </Typography>
+      </Grid>
+
+      {/* Login Form Section */}
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          p: 4,
+        }}
+      >
+        <Box sx={{ width: '100%', maxWidth: 400 }}>
+          <IconButton onClick={onBack} size="small" sx={{ mb: 1 }}>
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography
+            variant="h5"
+            gutterBottom
+            sx={{ textTransform: 'capitalize', fontWeight: 'bold' }}
+          >
+            {role} Login
+          </Typography>
+          {error && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {error}
+            </Alert>
+          )}
+          <form onSubmit={handleSubmit}>
+            <Stack spacing={2}>
+              <TextField
+                label="Email"
+                type="email"
+                fullWidth
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <TextField
+                label="Password"
+                type="password"
+                fullWidth
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <Button type="submit" variant="contained" size="large">
+                Login
+              </Button>
+            </Stack>
+          </form>
+        </Box>
+      </Grid>
+    </Grid>
   );
 };
 

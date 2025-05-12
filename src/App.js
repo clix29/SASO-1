@@ -24,6 +24,22 @@ import AboutPage from "./pages/AboutPage";
 import ModulesPage from "./pages/ModulesPage";
 import Schedule from "./pages/Schedule";
 import Messages from "./pages/Messages";
+import StudentAttendance from "./pages/StudentAttendance"; // Import the StudentAttendance component
+import AcademicRecord from "./pages/AcademicRecord";
+import Profile from "./pages/Profile";
+import ScheduleTutorials from "./pages/ScheduleTutorials";
+import NotifyStudents from "./pages/NotifyStudents";
+import ManageFAQs from "./pages/ManageFAQs";
+import StudentProgress from "./pages/StudentProgress";
+import StudentAttend from "./StudentAttend";
+import Materials from "./pages/Material";
+import Performance from "./pages/Performance";
+import Communication from "./pages/Communication";
+import MaterialsManagement from "./pages/MaterialsManagement";
+import AttendanceMonitoring from "./pages/AttendenceMonitor";
+import Session from "./pages/session";
+import Analytics from "./pages/Analytics";
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -54,6 +70,29 @@ function App() {
               <Route path="/modules" element={<ModulesPage />} />
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/messages" element={<Messages />} />
+              <Route path="/attendance" element={<StudentAttendance />} /> {/* Add this route */}
+              <Route path="/academic-record" element={<AcademicRecord />} />
+              <Route path="/tutor" element={<TutorDashboard />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/tut" element={<ScheduleTutorials />} />
+              <Route path="/notify-students" element={<NotifyStudents />} />
+              <Route path="/manage-faqs" element={<ManageFAQs />} />
+              <Route path="/student-progress" element={<StudentProgress />} />
+              <Route path="/lecture" element={<LecturerDashboard />} /> 
+              <Route path="/lecturer-attendance" element={<StudentAttend />} /> {/* Add this route */}
+              <Route path="/materials" element={<Materials />} /> {/* Add this route */}  
+              <Route path="/performance" element={<Performance />} /> {/* Add this route */}
+              <Route path="/communication" element={<Communication />} /> {/* Add this route */}
+              <Route path="/admin" element={<AdminDashboard />} /> {/* Add this route */}
+              <Route path="/materials-management" element={<MaterialsManagement />} /> {/* Add this route */}
+              <Route path="/attendance-monitoring" element={<AttendanceMonitoring />} /> {/* Add this route */}
+              <Route path="/session" element={<Session />} /> {/* Add this route */}
+              <Route path="/analytics" element={<Analytics />} /> {/* Add this route */}
+
+
+              {/* Redirects for common URL variations */}
+
+              {/* Protected Routes */}
 
               {/* Protected Dashboard Routes */}
               <Route
@@ -78,9 +117,7 @@ function App() {
                 />
                 <Route
                   path="attendance"
-                  element={React.createElement(
-                    require("./pages/dashboards/student/Attendance").default
-                  )}
+                  element={<StudentAttendance />} // Add attendance route under student dashboard
                 />
                 <Route
                   path="faq"

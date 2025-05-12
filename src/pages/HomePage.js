@@ -33,31 +33,17 @@ const HomePage = () => {
       sx={{
         p: 4,
         minHeight: "100vh",
-        position: "relative", // Set position to relative for overlay positioning
-        background: "linear-gradient(135deg,rgb(1, 20, 37),rgb(73, 73, 202))", // Navy blue gradient background
-        color: "#e0e0e0", // Light gray text for better contrast
+        position: "relative",
+        background: "#ffffff", // Changed to white background
+        color: "#333333", // Dark text color
       }}
     >
-      {/* Dark overlay with blur effect */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: "rgba(0, 0, 128, 0.5)", // Darker transparent overlay for a more subtle effect
-          backdropFilter: "blur(10px)", // Apply blur effect
-          zIndex: -1, // Keep the overlay behind the content
-        }}
-      />
-
       {/* Header */}
       <Typography
         variant="h4"
         gutterBottom
         sx={{
-          color: "#ffffff", // White text for the header
+          color: "#1976d2", // Primary blue color for the header
           fontWeight: "bold",
           textAlign: "center",
         }}
@@ -69,7 +55,7 @@ const HomePage = () => {
         sx={{
           mb: 4,
           textAlign: "center",
-          color: "#e0e0e0", // Light gray for body text
+          color: "#555555", // Subtle gray for body text
         }}
       >
         The Student Data System (SDS) is your central platform for managing
@@ -82,7 +68,7 @@ const HomePage = () => {
         variant="h5"
         sx={{
           mb: 2,
-          color: "#ffffff", // White text for section titles
+          color: "#1976d2", // Primary blue for section titles
           fontWeight: "bold",
         }}
       >
@@ -90,11 +76,11 @@ const HomePage = () => {
       </Typography>
       <List
         sx={{
-          bgcolor: "#333333", // Dark background for the list
-          boxShadow: 3,
+          bgcolor: "#ffffff", // White background for the list
+          boxShadow: 1,
           borderRadius: 2,
           mb: 4,
-          border: "1px solid #444", // Subtle dark border for contrast
+          border: "1px solid #ddd", // Light gray border
         }}
       >
         {announcements.map((item, index) => (
@@ -104,10 +90,10 @@ const HomePage = () => {
               secondary={item.date}
               primaryTypographyProps={{
                 fontWeight: "medium",
-                color: "#ffffff", // White text for announcements
+                color: "#333333", // Dark text for announcements
               }}
               secondaryTypographyProps={{
-                color: "#90caf9", // Lighter blue for dates
+                color: "#1976d2", // Primary blue for dates
               }}
             />
           </ListItem>
@@ -119,7 +105,7 @@ const HomePage = () => {
         variant="h5"
         sx={{
           mb: 2,
-          color: "#ffffff", // White text for section titles
+          color: "#1976d2", // Primary blue for section titles
           fontWeight: "bold",
         }}
       >
@@ -131,10 +117,10 @@ const HomePage = () => {
             <Card
               sx={{
                 height: "100%",
-                boxShadow: 4,
+                boxShadow: 2,
                 borderRadius: 2,
-                backgroundColor: "#1c1c1c", // Dark background for cards
-                color: "#e0e0e0", // Light gray text for readability
+                backgroundColor: "#ffffff", // White background for cards
+                color: "#333333", // Dark text for readability
               }}
             >
               <CardContent sx={{ textAlign: "center" }}>
@@ -146,7 +132,7 @@ const HomePage = () => {
                   sx={{
                     mb: 2,
                     fontWeight: "bold",
-                    color: "#ffffff", // White text for the card titles
+                    color: "#1976d2", // Primary blue for card titles
                   }}
                 >
                   {item.title}
@@ -157,7 +143,7 @@ const HomePage = () => {
                   fullWidth
                   size="small"
                   sx={{
-                    backgroundColor: "#1976d2", // Light blue button for dark theme
+                    backgroundColor: "#1976d2", // Primary blue button
                     color: "#ffffff",
                     "&:hover": {
                       backgroundColor: "#1565c0", // Darker blue on hover
@@ -177,7 +163,7 @@ const HomePage = () => {
         variant="h5"
         sx={{
           mb: 2,
-          color: "#ffffff", // White text for section titles
+          color: "#1976d2", // Primary blue for section titles
           fontWeight: "bold",
         }}
       >
@@ -190,9 +176,9 @@ const HomePage = () => {
               p: 3,
               textAlign: "center",
               borderRadius: 2,
-              boxShadow: 2,
-              backgroundColor: "#333333", // Dark background for login/signup
-              color: "#e0e0e0", // Light gray text for readability
+              boxShadow: 1,
+              backgroundColor: "#ffffff", // White background for login/signup
+              color: "#333333", // Dark text for readability
             }}
           >
             <Typography variant="h6" sx={{ mb: 1 }}>
@@ -203,7 +189,7 @@ const HomePage = () => {
               fullWidth
               sx={{
                 mt: 2,
-                backgroundColor: "#1976d2", // Light blue button for dark theme
+                backgroundColor: "#1976d2", // Primary blue button
                 "&:hover": {
                   backgroundColor: "#1565c0", // Darker blue on hover
                 },
@@ -220,9 +206,9 @@ const HomePage = () => {
               p: 3,
               textAlign: "center",
               borderRadius: 2,
-              boxShadow: 2,
-              backgroundColor: "#333333", // Dark background for sign up section
-              color: "#e0e0e0", // Light gray text for readability
+              boxShadow: 1,
+              backgroundColor: "#ffffff", // White background for sign up section
+              color: "#333333", // Dark text for readability
             }}
           >
             <Typography variant="h6" sx={{ mb: 1 }}>
@@ -233,7 +219,7 @@ const HomePage = () => {
               fullWidth
               sx={{
                 mt: 2,
-                borderColor: "#1976d2", // Light blue border for sign up button
+                borderColor: "#1976d2", // Primary blue border for sign up button
                 color: "#1976d2", // Blue text for sign up
                 "&:hover": {
                   borderColor: "#1565c0", // Darker blue on hover
